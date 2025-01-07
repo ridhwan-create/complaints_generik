@@ -37,7 +37,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex flex-col min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
             <div class="fixed top-0 right-0 p-4 text-right z-10 sm:p-6">
                 @auth
@@ -52,86 +52,85 @@
                     </a>
                 @endauth
             </div>
+            
             @endif
-        
-            <div class="flex-grow flex justify-center items-center">
-                <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                    <div class="flex justify-center">
-                        <!-- SVG dan imej utama jika diperlukan -->
+
+            <div class="max-w-7xl mx-auto p-6 lg:p-8">
+                <div class="flex justify-center">
+                    <!-- SVG dan imej utama jika diperlukan -->
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-4 my-8">
+                    <!-- Bahagian Tajuk -->
+                    <div class="text-center w-full md:w-auto">
+                        <div class="flex items-center justify-center gap-4">
+                            <img class="h-16 w-16" src="{{ asset('storage/logo-maiwp.png') }}" alt="Logo MAIWP" />
+                            <h2 class="theme-text text-3xl font-bold">ADU@GENERIK</h2>
+                        </div>
+                        <p class="theme-text text-sm font-semibold mt-2 italic">
+                            COMPLAINT MANAGEMENT SYSTEM <br> (GENERIC APPLICATION UNIT SUPERVISION)
+                        </p>
                     </div>
-                    <div class="flex flex-wrap justify-center items-center gap-4 my-8">
-                        <!-- Bahagian Tajuk -->
-                        <div class="text-center w-full md:w-auto">
-                            <div class="flex items-center justify-center gap-4">
-                                <img class="h-16 w-16" src="{{ asset('storage/logo-maiwp.png') }}" alt="Logo MAIWP" />
-                                <h2 class="theme-text text-3xl font-bold">ADU@GENERIK</h2>
-                            </div>
-                            <p class="theme-text text-sm font-semibold mt-2 italic">
-                                COMPLAINT MANAGEMENT SYSTEM <br> (GENERIC APPLICATION UNIT SUPERVISION)
-                            </p>
-                        </div>
-                
-                        <!-- Bahagian Slash -->
-                        <div class="hidden md:block">
-                            <img class="h-24 w-24 mx-auto" src="{{ asset('storage/slash.png') }}" alt="Slash Image" />
-                        </div>
-                
-                        <!-- Bahagian Imej Pasukan -->
-                        <div class="flex flex-wrap gap-4 justify-center" id="team-container">
-                            <div class="text-center">
-                                <img class="h-16 w-16 mx-auto" src="{{ asset('storage/izzati.png') }}" alt="Izzati" />
-                                <div class="theme-text mt-2 text-xs italic">IZZATI</div>
-                            </div>
-                            <div class="text-center">
-                                <img class="h-16 w-16 mx-auto" src="{{ asset('storage/isya.png') }}" alt="Isya" />
-                                <div class="theme-text mt-2 text-xs italic">ISYA</div>
-                            </div>
-                            <div class="text-center">
-                                <img class="h-16 w-16 mx-auto" src="{{ asset('storage/rdwn.png') }}" alt="Ridhwan" />
-                                <div class="theme-text mt-2 text-xs italic">RIDHWAN</div>
-                            </div>
-                            <div class="text-center">
-                                <img class="h-16 w-16 mx-auto" src="{{ asset('storage/fadhil.png') }}" alt="Fadhil" />
-                                <div class="theme-text mt-2 text-xs italic">FADHIL</div>
-                            </div>
-                        </div>
+            
+                    <!-- Bahagian Slash -->
+                    <div class="hidden md:block">
+                        <img class="h-24 w-24 mx-auto" src="{{ asset('storage/slash.png') }}" alt="Slash Image" />
                     </div>
-                
-                    @if(session('success'))
-                        <div class="bg-green-500 text-white p-4 rounded-md text-center">
-                            {{ session('success') }}
+            
+                    <!-- Bahagian Imej Pasukan -->
+                    <div class="flex flex-wrap gap-4 justify-center" id="team-container">
+                        <div class="text-center">
+                            <img class="h-16 w-16 mx-auto" src="{{ asset('storage/izzati.png') }}" alt="Izzati" />
+                            <div class="theme-text mt-2 text-xs italic">IZZATI</div>
                         </div>
-                    @endif
-                
-                    <!-- Bahagian Pautan -->
-                    <div class="text-center mt-10">
-                        <a href="{{ route('public_complaints.create') }}" class="text-xl font-bold bg-white text-black py-3 px-8 rounded-lg shadow-md transition-all hover:bg-gray-200">
-                            CLICK FOR COMPLAINT
-                        </a>
-                    </div>
-                    <div class="text-center mt-4">
-                        <a href="{{ route('public_complaints.statusCheckForm') }}" class="theme-text text-sm">
-                            Check Complaint Status
-                        </a>
+                        <div class="text-center">
+                            <img class="h-16 w-16 mx-auto" src="{{ asset('storage/isya.png') }}" alt="Isya" />
+                            <div class="theme-text mt-2 text-xs italic">ISYA</div>
+                        </div>
+                        <div class="text-center">
+                            <img class="h-16 w-16 mx-auto" src="{{ asset('storage/rdwn.png') }}" alt="Ridhwan" />
+                            <div class="theme-text mt-2 text-xs italic">RIDHWAN</div>
+                        </div>
+                        <div class="text-center">
+                            <img class="h-16 w-16 mx-auto" src="{{ asset('storage/fadhil.png') }}" alt="Fadhil" />
+                            <div class="theme-text mt-2 text-xs italic">FADHIL</div>
+                        </div>
                     </div>
                 </div>
+            
+                @if(session('success'))
+                    <div class="bg-green-500 text-white p-4 rounded-md text-center">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            
+                <!-- Bahagian Pautan -->
+                <div class="text-center mt-10">
+                    <a href="{{ route('public_complaints.create') }}" class="text-xl font-bold bg-white text-black py-3 px-8 rounded-lg shadow-md transition-all hover:bg-gray-200">
+                        CLICK FOR COMPLAINT
+                    </a>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ route('public_complaints.statusCheckForm') }}" class="theme-text text-sm">
+                        Check Complaint Status
+                    </a>
+                </div>
+            
+                <!-- Footer -->
+                <footer class="bg-gray-800 py-6">
+                    <div class="container mx-auto px-4 text-center text-sm text-gray-400">
+                        <p class="leading-relaxed">
+                            Hak Cipta &copy; 2025 
+                            <span class="font-semibold text-gray-300">Bahagian Teknologi Maklumat</span>, 
+                            Unit Pembangunan Aplikasi Generik.<br>
+                            Majlis Agama Islam Wilayah Persekutuan.
+                        </p>
+                    </div>
+                </footer>
+
             </div>
             
-        
-            <!-- Footer -->
-            <footer class="bg-gray-800 py-6">
-                <div class="container mx-auto px-4 text-center text-sm text-gray-400">
-                    <p class="leading-relaxed">
-                        Hak Cipta &copy; 2025 
-                        <span class="font-semibold text-gray-300">Bahagian Teknologi Maklumat</span>, 
-                        Unit Pembangunan Aplikasi Generik.<br>
-                        Majlis Agama Islam Wilayah Persekutuan.
-                    </p>
-                </div>
-            </footer>
         </div>
         
-
     </body>
 </html>
 
